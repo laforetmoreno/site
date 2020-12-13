@@ -1,0 +1,11 @@
+[[redirects]]
+  from = "https://baraodashashtags.com.br"
+  to = "https://baraodashashtags.com"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.baraodashashtags.com.br"
+  to = "https://baraodashashtags.com"
+  status = 301
+  force = true
