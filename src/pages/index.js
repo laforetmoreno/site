@@ -14,7 +14,7 @@ import interleave from 'loose-interleave';
 import 'fontsource-roboto';
 
 const pageStyles = {
-  padding: '48px 96px',
+  padding: 10,
 };
 
 const tagStyles = {
@@ -153,7 +153,7 @@ const IndexPage = () => {
             fullWidth
             label="Procurar hashtags"
             variant="filled"
-            placeholder="#sextou #praia #natureza"
+            placeholder="#praia #bikini #natureza"
             onChange={handleOnInputChange}
           />
           <Button
