@@ -1,107 +1,209 @@
-import * as React from "react"
+import React, { useState, useEffect } from "react"
+import { CopyToClipboard } from 'react-copy-to-clipboard';
+import { Helmet } from "react-helmet";
+import Chip from '@material-ui/core/Chip';
+import Alert from '@material-ui/lab/Alert';
+import Input from '@material-ui/core/Input';
+import Button from '@material-ui/core/Button';
+import Snackbar from '@material-ui/core/Snackbar';
+import Typography from '@material-ui/core/Typography';
+import LinearProgress from '@material-ui/core/LinearProgress';
+import axios from 'axios';
+import uniqBy from 'lodash/uniqBy';
+import interleave from 'loose-interleave';
+import 'fontsource-roboto';
 
-// styles
 const pageStyles = {
-  color: "#232129",
-  padding: "96px",
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-}
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-}
-const headingAccentStyles = {
-  color: "#663399",
-}
-const paragraphStyles = {
-  marginBottom: 48,
-}
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-}
-const listStyles = {
-  marginBottom: 96,
-  paddingLeft: 0,
-  listStyleType: "none",
-}
-const listItemStyles = {
-  marginBottom: 12,
-  fontWeight: "300",
-  letterSpacing: 1,
-}
-const linkStyles = {
-  color: "#8954A8",
-}
+  padding: '48px 96px',
+};
 
-// data
-const links = [
-  {
-    text: "Documentation",
-    url: "https://www.gatsbyjs.com/docs/",
-  },
-  {
-    text: "Tutorials",
-    url: "https://www.gatsbyjs.com/tutorial/",
-  },
-  {
-    text: "Guides",
-    url: "https://www.gatsbyjs.com/tutorial/",
-  },
-  {
-    text: "API Reference",
-    url: "https://www.gatsbyjs.com/docs/api-reference/",
-  },
-  {
-    text: "Plugin Library",
-    url: "https://www.gatsbyjs.com/plugins",
-  },
-  {
-    text: "Cheat Sheet",
-    url: "https://www.gatsbyjs.com/docs/cheat-sheet/",
-  },
-]
+const tagStyles = {
+  margin: 5,
+};
 
-// markup
+const buttonStyles = {
+  marginTop: 10,
+};
+
+const tagsWrapperStyles = {
+  margin: -5,
+  textAlign: 'center',
+  marginTop: 10,
+};
+
+const titleStyles = {
+  marginBottom: 20,
+};
+
+const heroStyles = {
+  maxWidth: 720,
+  margin: '0 auto',
+};
+
+const loadingStyle = {
+  marginTop: 10,
+};
+
 const IndexPage = () => {
+  const [tags, setTags] = useState([]);
+  const [text, setText] = useState('');
+  const [query, setQuery] = useState('');
+  const [copied, setCopied] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState('');
+  const [selectedTags, setSelectedTags] = useState([]);
+
+  const fetchSearchResults = async (query) => {
+    const searchUrl = 'https://api.leetags.com/search';
+
+    let cancel;
+    if (cancel) {
+      cancel.cancel();
+    }
+
+    cancel = axios.CancelToken.source();
+
+    let response;
+    try {
+      response = await axios.get(searchUrl, {
+        cancelToken: cancel.token,
+        params: {
+          query,
+        }
+      });
+    } catch (e) {
+      if (axios.isCancel(e)) {
+        setLoading(false);
+        setMessage('Failed to fetch results. Please check network');
+      }
+    }
+
+    if (!response) {
+      return;
+    }
+
+    const { data } = response;
+    const formattedTags = uniqBy(interleave(...response.data.map(tag => tag.relatedTags)), 'name');
+    setTags(formattedTags);
+    const resultMessage = !data.length ?
+      'Não foi encontrada nenhuma hashtags. Por favor tente uma busca diferente.' :
+      '';
+    setMessage(resultMessage);
+    let formattedSelectedTags = selectedTags.filter(selectedTag => formattedTags.findIndex(formattedTag => formattedTag.name === selectedTag) > -1);
+    formattedSelectedTags = formattedTags.slice(0, 30).map(formattedTag => formattedTag.name);
+    setSelectedTags(formattedSelectedTags);
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    const formattedText = selectedTags.map(selectedTag => `#${selectedTag}`).join(' ');
+    setText(formattedText);
+  }, [selectedTags]);
+
+  const handleOnInputChange = (event) => {
+    const query = event.target.value;
+    setQuery(query);
+  };
+
+  const handleOnFormSubmit = (event) => {
+    event.preventDefault();
+    const formattedQuery = query.trim();
+    if (!formattedQuery) {
+      setTags([]);
+      setSelectedTags([]);
+      setMessage(formattedQuery);
+    } else {
+      setLoading(true);
+      setMessage('');
+      fetchSearchResults(formattedQuery);
+    }
+  };
+
+  const handleCopyButtonClick = () => {
+    setCopied(true);
+  };
+
+  const handleSnackbarClose = () => {
+    setCopied(false);
+  }
+
+  const isTagSelected = (tagName) => selectedTags.indexOf(tagName) > -1;
+
+  const handleTagClick = (tag) => {
+    if (isTagSelected(tag.name)) {
+      const filteredSelectedTags = selectedTags.filter((selectedTag) => selectedTag !== tag.name);
+      setSelectedTags(filteredSelectedTags);
+    } else {
+      const updatedSelectedTags = [...selectedTags, tag.name];
+      setSelectedTags(updatedSelectedTags);
+    }
+  };
+
   return (
     <main style={pageStyles}>
-      <title>Home Page</title>
-      <h1 style={headingStyles}>
-        Congratulations
-        <br />
-        <span style={headingAccentStyles}>— you just made a Gatsby site!</span>
-        <span role="img" aria-label="Party popper emojis">
-          🎉🎉🎉
-        </span>
-      </h1>
-      <p style={paragraphStyles}>
-        Edit <code style={codeStyles}>src/pages/index.js</code> to see this page
-        update in real-time.{" "}
-        <span role="img" aria-label="Sunglasses smiley emoji">
-          😎
-        </span>
-      </p>
-      <ul style={listStyles}>
-        {links.map(link => (
-          <li style={listItemStyles}>
-            <a
-              style={linkStyles}
-              href={`${link.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
+      <Helmet>
+        <title>Barão das Hashtags - Análise de Hashtags</title>
+      </Helmet>
+      <div style={heroStyles}>
+        <Typography style={titleStyles} align="center" variant="h5" component="h1">
+          Digite no campo abaixo algumas palavras relacionadas com sua postagem, depois copie as hashtags do resultado e use no Instagram para impulsionar seu alcance.
+        </Typography>
+        <form onSubmit={handleOnFormSubmit} noValidate autoComplete="off">
+          <Input
+            fullWidth
+            label="Procurar hashtags"
+            variant="filled"
+            placeholder="#sextou #praia #natureza"
+            onChange={handleOnInputChange}
+          />
+          <Button
+            variant="contained"
+            color="primary"
+            size="large"
+            type="submit"
+            style={buttonStyles}
+            fullWidth
+          >
+            Procurar hashtags
+          </Button>
+          {loading && <LinearProgress style={loadingStyle} />}
+          {!loading && !!tags.length && <CopyToClipboard
+            text={text}
+            onCopy={handleCopyButtonClick}
+          >
+            <Button
+              variant="contained"
+              color="secondary"
+              size="large"
+              style={buttonStyles}
+              fullWidth
             >
-              {link.text}
-            </a>
-          </li>
+              {`Copiar hashtags selecionadas (${selectedTags.length}/30)`}
+            </Button>
+          </CopyToClipboard>}
+        </form>
+      </div>
+      {message && <p>{message}</p>}
+      {!loading && !!tags.length && <div style={tagsWrapperStyles}>
+        {tags.map((tag) => (
+          <Chip
+            key={tag.name}
+            style={tagStyles}
+            label={`#${tag.name} · ${Math.round(tag.relevance) * 5}% relevante`}
+            onClick={() => handleTagClick(tag)}
+            color={isTagSelected(tag.name) ? 'primary' : 'default'}
+          />
         ))}
-      </ul>
-      <img
-        alt="Gatsby G Logo"
-        src="data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2C13.3132 2 14.6136 2.25866 15.8268 2.7612C17.0401 3.26375 18.1425 4.00035 19.0711 4.92893C19.9997 5.85752 20.7362 6.95991 21.2388 8.17317C21.7413 9.38642 22 10.6868 22 12C22 14.6522 20.9464 17.1957 19.0711 19.0711C17.1957 20.9464 14.6522 22 12 22C10.6868 22 9.38642 21.7413 8.17317 21.2388C6.95991 20.7362 5.85752 19.9997 4.92893 19.0711C3.05357 17.1957 2 14.6522 2 12C2 9.34784 3.05357 6.8043 4.92893 4.92893C6.8043 3.05357 9.34784 2 12 2ZM12 4C8.27 4 5.14 6.55 4.25 10L14 19.75C17.45 18.86 20 15.73 20 12H14.75V13.5H18.2C17.71 15.54 16.24 17.19 14.31 17.94L6.06 9.69C7 7.31 9.3 5.63 12 5.63C14.13 5.63 16 6.67 17.18 8.28L18.41 7.22C16.95 5.26 14.63 4 12 4ZM4 12C4 14.1217 4.84285 16.1566 6.34315 17.6569C7.84344 19.1571 9.87827 20 12 20C12.04 20 12.09 20 4 12Z' fill='%23663399'/%3E%3C/svg%3E%0A"
-      />
+      </div>}
+      <Snackbar
+        open={copied}
+        onClose={handleSnackbarClose}
+        autoHideDuration={3000}
+      >
+        <Alert onClose={handleSnackbarClose} variant="filled" severity="success">
+          Hashtags selecionadas copiadas!
+        </Alert>
+      </Snackbar>
     </main>
   )
 }

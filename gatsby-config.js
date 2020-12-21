@@ -14,5 +14,6 @@ module.exports = {
         trackingId: `UA-185650998-1`,
       },
     },
+    `gatsby-plugin-react-helmet`,
   ],
 };
