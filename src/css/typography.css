@@ -1,0 +1,13 @@
+@font-face {
+  font-family: 'Associate Sans Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Associate Sans Regular'), url('../../fonts/AssociateSansRegular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Associate Sans Medium';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Associate Sans Medium'), url('../../fonts/AssociateSansMedium.woff') format('woff');
+}

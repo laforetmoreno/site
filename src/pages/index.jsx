@@ -4,24 +4,25 @@ import styled from 'styled-components';
 import { FaInstagram, FaFacebook, FaTwitter } from 'react-icons/fa';
 
 import ProfilePicture from '../../static/barao-das-hashtags-profile-picture.png';
+import '../css/typography.css';
 
-const Content = styled.div`
-  margin: 0 auto;
-`;
+const Content = styled.div``;
 
 const Container = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
   height: 100vh;
+  min-height: 457px;
   justify-content: center;
   width: 100vw;
+  min-width: 340px;
 `;
 
 const LinksList = styled.ul`
   list-style: none;
   padding-left: 0;
-  margin-bottom: 10px;
+  margin: 0;
 `;
 
 const LinksListItem = styled.li`
@@ -42,7 +43,9 @@ const LinksListButton = styled.button.attrs({
   box-shadow: 0px 0px 20px -5px rgba(14,140,255,0.65);
   color: #ffffff;
   cursor: pointer;
-  font-weight: bold;
+  font-family: 'Associate Sans Medium';
+  letter-spacing: 0.5px;
+  font-size: 15px;
   padding: 15px;
   width: 100%;
 `;
@@ -50,14 +53,15 @@ const LinksListButton = styled.button.attrs({
 const ProfilePictureImage = styled.img`
   border-radius: 50%;
   box-shadow: 0px 0px 75px -10px rgba(14,140,255,0.65);
-  margin-bottom: 10px;
   width: 150px;
   height: 150px;
+  margin-top: 15px;
 `;
 
 const SocialNetworksList = styled.ul`
   list-style: none;
   padding-left: 0;
+  margin: 20px 0 0;
 `;
 
 const SocialNetworksListItem = styled.li`
@@ -72,13 +76,34 @@ const SocialNetworksListButton = styled.button`
   padding: 10px;
 `;
 
+const Name = styled.h1`
+  color: #444444;
+  font-family: 'Associate Sans Medium';
+  font-size: 20px;
+  letter-spacing: 0.5px;
+  margin: 20px 0 2.5px;
+`;
+
+const Username = styled.h2`
+  color: #555555;
+  font-family: 'Associate Sans Regular';
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  margin: 0;
+  margin: 0 0 20px;
+`;
+
+const Card = styled.div`
+  text-align: center;
+`;
+
 const links = [
   {
-    title: 'MENTORIA ENGAJA+ INSTAGRAM',
+    title: 'MENTORIA ENGAJA<span style="display: inline-block; margin-left: 1px; font-size: 28px; line-height: 0; vertical-align: -3.5px; font-family: \'Associate Sans Regular\';">+</span> INSTAGRAM',
     url: '1',
   },
   {
-    title: 'APP GERADOR DE HASHTAGS',
+    title: 'LEETAGS (APP DE HASHTAGS)',
     url: '2',
   },
 ];
@@ -122,27 +147,34 @@ const IndexPage = () => {
       </Helmet>
       <Content>
         <Container>
-          <ProfilePictureImage src={ProfilePicture} alt="Claudius Ibn | Instrategista"></ProfilePictureImage>
-          <LinksList>
-            {links.map((link, index) => (
-              <LinksListItem key={index}>
-                <LinksListButton onClick={() => handleLinkClick(link)}>
-                  {link.title}
-                </LinksListButton>
-              </LinksListItem>
-            ))}
-          </LinksList>
-          <SocialNetworksList>
-            {socialNetworks.map(socialNetwork => (
-              <SocialNetworksListItem key={socialNetwork.name} style={{color: '#0E8CFF'}}>
-                <SocialNetworksListButton onClick={() => handleLinkClick(socialNetwork)}>
-                  {socialNetwork.icon}
-                </SocialNetworksListButton>
-              </SocialNetworksListItem>
-            ))}
-          </SocialNetworksList>
+          <Card>
+            <ProfilePictureImage src={ProfilePicture} alt="Claudius Ibn | Instrategista"></ProfilePictureImage>
+            <Name>Claudius Ibn</Name>
+            <Username>@baraodashashtags</Username>
+            <LinksList>
+              {links.map((link, index) => (
+                <LinksListItem key={index}>
+                  <LinksListButton
+                    dangerouslySetInnerHTML={{
+                      __html: link.title
+                    }}
+                    onClick={() => handleLinkClick(link)}
+                  >
+                  </LinksListButton>
+                </LinksListItem>
+              ))}
+            </LinksList>
+            <SocialNetworksList>
+              {socialNetworks.map(socialNetwork => (
+                <SocialNetworksListItem key={socialNetwork.name} style={{color: '#0E8CFF'}}>
+                  <SocialNetworksListButton onClick={() => handleLinkClick(socialNetwork)}>
+                    {socialNetwork.icon}
+                  </SocialNetworksListButton>
+                </SocialNetworksListItem>
+              ))}
+            </SocialNetworksList>
+          </Card>
         </Container>
-        <p>Lorem ipsum.</p>
       </Content>
     </main>
   )
