@@ -60,6 +60,10 @@ const LinksListButton = styled.button.attrs({
     background-color: transparent;
     color: #0E8CFF;
   }
+
+  &:focus {
+    outline: none;
+  }
 `;
 
 const ProfilePictureImage = styled.img`
@@ -120,7 +124,7 @@ const Card = styled.div`
 
 const menuLinks = [
   {
-    title: 'MENTORIA ENGAJA<span style="display: inline-block; margin-left: 1px; font-size: 28px; line-height: 0; vertical-align: -3.5px; font-family: \'Associate Sans Regular, Helvetica, sans-serif\';">+</span> INSTAGRAM',
+    title: 'MENTORIA ENGAJA<span style="display: inline-block; margin-left: 1px; font-size: 24px; line-height: 0; vertical-align: 0px; font-family: \'Associate Sans Regular, Helvetica, sans-serif\';">+</span> INSTAGRAM',
     category: 'Menu',
     target: '_blank',
     url: {
@@ -128,7 +132,15 @@ const menuLinks = [
     },
   },
   {
-    title: 'LEETAGS (APP DE HASHTAGS)',
+    title: 'ENTRAR NO GRUPO DO TELEGRAM',
+    category: 'Menu',
+    target: '_blank',
+    url: {
+      default: 'https://t.me/joinchat/Hx2oHJd_Q_4_ncjP',
+    },
+  },
+  {
+    title: 'LEETAGS - APP DE HASHTAGS',
     category: 'Menu',
     target: '_blank',
     url: {
