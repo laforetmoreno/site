@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
 import { isIOS, isAndroid, isMobile } from 'react-device-detect';
-import { FaInstagram, FaFacebookF, FaWhatsapp } from 'react-icons/fa';
+import { FaInstagram, FaFacebook, FaWhatsapp } from 'react-icons/fa';
 import { trackCustomEvent } from 'gatsby-plugin-google-analytics';
 
 import ProfilePicture from '../../static/barao-das-hashtags.png';
@@ -162,7 +162,7 @@ const socialNetworksLinks = [
     },
   },
   {
-    icon: <FaFacebookF color="#0E8CFF" size={25} />,
+    icon: <FaFacebook color="#0E8CFF" size={25} />,
     name: 'Facebook',
     category: 'Social Networks',
     target: '_blank',
