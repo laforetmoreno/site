@@ -175,7 +175,7 @@ const socialNetworksLinks = [
     name: 'Twitter',
     target: '_blank',
     url: {
-      default: 'https://twitter.com/baraodashashtags',
+      default: 'https://twitter.com/BaraoHashtags',
     },
   },
 ];
