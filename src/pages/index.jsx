@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
-import { isIOS, isAndroid } from 'react-device-detect';
+import { isIOS, isAndroid, isMobile } from 'react-device-detect';
 import { FaInstagram, FaFacebook, FaTwitter } from 'react-icons/fa';
 import { trackCustomEvent } from 'gatsby-plugin-google-analytics';
 
@@ -175,7 +175,7 @@ const socialNetworksLinks = [
     name: 'Twitter',
     target: '_blank',
     url: {
-      default: 'https://twitter.com/baraodashashtags',
+      default: 'https://twitter.com/BaraoHashtags',
     },
   },
 ];
@@ -190,9 +190,9 @@ const IndexPage = () => {
   const handleLinkClick = (link) => {
     let url;
 
-    if (link.url.ios && isIOS) {
+    if (link.url.ios && isIOS && isMobile) {
       url = link.url.ios;
-    } else if (link.url.android && isAndroid) {
+    } else if (link.url.android && isAndroid && isMobile) {
       url = link.url.android;
     } else {
       url = link.url.default;
