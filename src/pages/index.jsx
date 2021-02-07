@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
+import { HideUntilLoaded } from 'react-animation'
 import { isMobileIOS, isMobileAndroid } from 'react-device-detect';
 import { FaInstagram, FaFacebook } from 'react-icons/fa';
 import { trackCustomEvent } from 'gatsby-plugin-google-analytics';
@@ -43,7 +44,7 @@ const LinksListButton = styled.button.attrs({
   type: 'button',
 })`
   background-color: #0E8CFF;
-  border: none;
+  border: 3px solid #0E8CFF;
   border-radius: 5px;
   box-shadow: 0px 0px 20px -5px rgba(14,140,255,0.65);
   color: #ffffff;
@@ -51,8 +52,15 @@ const LinksListButton = styled.button.attrs({
   font-family: 'Associate Sans Medium';
   letter-spacing: 0.5px;
   font-size: 15px;
-  padding: 15px;
+  padding: 12px;
+  transition: color 0.2s ease;
+  transition: background-color 0.2s ease;
   width: 100%;
+
+  &:hover, &:active {
+    background-color: transparent;
+    color: #0E8CFF;
+  }
 `;
 
 const ProfilePictureImage = styled.img`
@@ -79,6 +87,15 @@ const SocialNetworksListButton = styled.button`
   background: none;
   cursor: pointer;
   padding: 10px;
+
+  &:hover {
+    position: relative;
+    top: -2px;
+  }
+
+  &:focus {
+    outline: none;
+  }
 `;
 
 const Name = styled.h1`
@@ -106,6 +123,7 @@ const menuLinks = [
   {
     title: 'MENTORIA ENGAJA<span style="display: inline-block; margin-left: 1px; font-size: 28px; line-height: 0; vertical-align: -3.5px; font-family: \'Associate Sans Regular\';">+</span> INSTAGRAM',
     category: 'Menu',
+    target: '_blank',
     url: {
       default : 'https://www.hotmart.com/product/mentoria-engaja-mais-no-instagram/T47145001A',
     },
@@ -113,6 +131,7 @@ const menuLinks = [
   {
     title: 'LEETAGS (APP DE HASHTAGS)',
     category: 'Menu',
+    target: '_blank',
     url: {
       ios: 'https://itunes.apple.com/app/leetags-relevant-hashtags/id1230168971',
       android: 'https://play.google.com/store/apps/details?id=com.leetags',
@@ -126,6 +145,7 @@ const socialNetworksLinks = [
     icon: <FaInstagram color="#0E8CFF" size={25} />,
     name: 'Instagram',
     category: 'Social Networks',
+    target: '_blank',
     url: {
       default: 'https://www.instagram.com/baraodashashtags/',
     },
@@ -134,6 +154,7 @@ const socialNetworksLinks = [
     icon: <FaFacebook color="#0E8CFF" size={25} />,
     name: 'Facebook',
     category: 'Social Networks',
+    target: '_blank',
     url: {
       default: 'https://www.facebook.com/baraodashashtags',
     },
@@ -141,6 +162,7 @@ const socialNetworksLinks = [
   // {
   //   icon: <FaTwitter color="#0E8CFF" size={25} />,
   //   name: 'Twitter',
+  //   target: '_blank',
   //   url: {
   //     default: 'https://twitter.com/baraodashashtags',
   //   },
@@ -148,7 +170,7 @@ const socialNetworksLinks = [
 ];
 
 const IndexPage = () => {
-  const handleLinkClick = (link, category) => {
+  const handleLinkClick = (link) => {
     let url;
 
     if (link.url.ios && isMobileIOS) {
@@ -169,9 +191,9 @@ const IndexPage = () => {
       if (window.fbq != null) { // Don't use ===
         window.fbq('trackCustom', 'Click Link', { url });
       }
-    }
 
-    window.open(url, '_blank');
+      window.open(url, link.target);
+    }
   };
 
   return (
@@ -191,7 +213,9 @@ const IndexPage = () => {
       <Content>
         <Container>
           <Card>
-            <ProfilePictureImage src={ProfilePicture} alt="Claudius Ibn | Instrategista"></ProfilePictureImage>
+            <HideUntilLoaded animationIn="bounceIn" imageToLoad="../../static/barao-das-hashtags.png">
+              <ProfilePictureImage src={ProfilePicture} alt="Claudius Ibn | Instrategista"></ProfilePictureImage>
+            </HideUntilLoaded>
             <Name>Claudius Ibn | Instrategista</Name>
             <Username>@baraodashashtags</Username>
             <LinksList>
