@@ -103,11 +103,11 @@ const Card = styled.div`
 const links = [
   {
     title: 'MENTORIA ENGAJA<span style="display: inline-block; margin-left: 1px; font-size: 28px; line-height: 0; vertical-align: -3.5px; font-family: \'Associate Sans Regular\';">+</span> INSTAGRAM',
-    url: '1',
+    url: 'https://www.hotmart.com/product/mentoria-engaja-mais-no-instagram/T47145001A',
   },
   {
     title: 'LEETAGS (APP DE HASHTAGS)',
-    url: '2',
+    url: 'https://www.leetags.com',
   },
 ];
 
@@ -115,23 +115,23 @@ const socialNetworks = [
   {
     icon: <FaInstagram color="#0E8CFF" size={25} />,
     name: 'Instagram',
-    url: '1',
+    url: 'https://www.instagram.com/baraodashashtags/',
   },
   {
     icon: <FaFacebook color="#0E8CFF" size={25} />,
     name: 'Facebook',
-    url: '1',
+    url: 'https://www.facebook.com/baraodashashtags',
   },
   {
     icon: <FaTwitter color="#0E8CFF" size={25} />,
     name: 'Twitter',
-    url: '1',
+    url: 'https://twitter.com/baraodashashtags',
   },
 ];
 
 const IndexPage = () => {
   const handleLinkClick = (link) => {
-    console.log(link);
+    window.open(link.url, '_blank');
   };
 
   return (
