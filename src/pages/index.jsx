@@ -295,7 +295,7 @@ const IndexPage = () => {
         <Container>
           <Card>
             <ProfilePictureImage src={ProfilePicture} alt="Claudius Ibn | Instrategista"></ProfilePictureImage>
-            <Name>Claudius Ibn | Instrategista</Name>
+            <Name>Claudius Ibn <span role="img" aria-label="Peão de xadrez">♟️</span> Instrategista</Name>
             <Username>@baraodashashtags</Username>
             <LinksList>
               {menuLinks.map((menuLink, index) => (
