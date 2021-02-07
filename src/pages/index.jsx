@@ -4,19 +4,22 @@ import styled from 'styled-components';
 import { FaInstagram, FaFacebook, FaTwitter } from 'react-icons/fa';
 
 import ProfilePicture from '../../static/barao-das-hashtags.png';
+import '../css/global.css';
 import '../css/typography.css';
 
-const Content = styled.div``;
+const Content = styled.div`
+  background-image: url('grey-paper-texture.jpg');
+`;
 
 const Container = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
   height: 100vh;
-  min-height: 457px;
+  min-height: 449px;
   justify-content: center;
   width: 100vw;
-  min-width: 340px;
+  min-width: 331px;
 `;
 
 const LinksList = styled.ul`
@@ -143,7 +146,6 @@ const IndexPage = () => {
             hot('account','180c77e4-ed85-351c-bcf6-2e1ac9abe717');`}
         </script>
         {/* eslint-disable-next-line react/style-prop-object */}
-        <body style="margin: 0; background-image: url('grey-paper-texture.jpg');"></body>
         <link rel="icon" type="image/png" href="favicon.png" sizes="16x16" />
       </Helmet>
       <Content>
