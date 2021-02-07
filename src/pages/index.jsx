@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
 import { isIOS, isAndroid, isMobile } from 'react-device-detect';
@@ -21,7 +21,7 @@ const Container = styled.div`
   min-height: 449px;
   justify-content: center;
   width: 100vw;
-  min-width: 331px;
+  min-width: 311px;
 `;
 
 const LinksList = styled.ul`
@@ -32,7 +32,7 @@ const LinksList = styled.ul`
 
 const LinksListItem = styled.li`
   margin-top: 10px;
-  width: 300px;
+  width: 310px;
 
   &:first-child {
     margin-top: 0;
@@ -50,7 +50,7 @@ const LinksListButton = styled.button.attrs({
   cursor: pointer;
   font-family: 'Associate Sans Medium';
   letter-spacing: 0.5px;
-  font-size: 15px;
+  font-size: 17px;
   padding: 12px;
   transition: color 0.2s ease;
   transition: background-color 0.2s ease;
@@ -169,6 +169,12 @@ const socialNetworksLinks = [
 ];
 
 const IndexPage = () => {
+  useEffect(() => {
+    setTimeout(() => {
+      console.log(123);
+    }, 5000);
+  }, []);
+
   const handleLinkClick = (link) => {
     let url;
 
