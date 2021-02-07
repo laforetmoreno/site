@@ -4,7 +4,7 @@ module.exports = {
     description: 'Dicas para Instagram.',
     siteUrl: 'https://baraodashashtags.com',
     image: '/barao-das-hashtags-large.png',
-    twitterUsername: '@BaraoHashtags',
+    twitterUsername: '@baraodashashtags',
   },
   plugins: [
     `gatsby-plugin-styled-components`,
