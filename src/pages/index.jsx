@@ -1,7 +1,9 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
-import { FaInstagram, FaFacebook, FaTwitter } from 'react-icons/fa';
+import { Helmet } from 'react-helmet';
+import { isMobileIOS, isMobileAndroid } from 'react-device-detect';
+import { FaInstagram, FaFacebook } from 'react-icons/fa';
+import { trackCustomEvent } from 'gatsby-plugin-google-analytics';
 
 import ProfilePicture from '../../static/barao-das-hashtags.png';
 import '../css/global.css';
@@ -100,38 +102,71 @@ const Card = styled.div`
   text-align: center;
 `;
 
-const links = [
+const menuLinks = [
   {
     title: 'MENTORIA ENGAJA<span style="display: inline-block; margin-left: 1px; font-size: 28px; line-height: 0; vertical-align: -3.5px; font-family: \'Associate Sans Regular\';">+</span> INSTAGRAM',
-    url: 'https://www.hotmart.com/product/mentoria-engaja-mais-no-instagram/T47145001A',
+    url: {
+      default : 'https://www.hotmart.com/product/mentoria-engaja-mais-no-instagram/T47145001A',
+    },
   },
   {
     title: 'LEETAGS (APP DE HASHTAGS)',
-    url: 'https://www.leetags.com',
+    url: {
+      ios: 'https://itunes.apple.com/app/leetags-relevant-hashtags/id1230168971',
+      android: 'https://play.google.com/store/apps/details?id=com.leetags',
+      default: 'https://www.leetags.com',
+    },
   },
 ];
 
-const socialNetworks = [
+const socialNetworksLinks = [
   {
     icon: <FaInstagram color="#0E8CFF" size={25} />,
     name: 'Instagram',
-    url: 'https://www.instagram.com/baraodashashtags/',
+    url: {
+      default: 'https://www.instagram.com/baraodashashtags/',
+    },
   },
   {
     icon: <FaFacebook color="#0E8CFF" size={25} />,
     name: 'Facebook',
-    url: 'https://www.facebook.com/baraodashashtags',
+    url: {
+      default: 'https://www.facebook.com/baraodashashtags',
+    },
   },
-  {
-    icon: <FaTwitter color="#0E8CFF" size={25} />,
-    name: 'Twitter',
-    url: 'https://twitter.com/baraodashashtags',
-  },
+  // {
+  //   icon: <FaTwitter color="#0E8CFF" size={25} />,
+  //   name: 'Twitter',
+  //   url: {
+  //     default: 'https://twitter.com/baraodashashtags',
+  //   },
+  // },
 ];
 
 const IndexPage = () => {
   const handleLinkClick = (link) => {
-    window.open(link.url, '_blank');
+    let url;
+
+    if (link.url.ios && isMobileIOS) {
+      url = link.url.ios;
+    } else if (link.url.android && isMobileAndroid) {
+      url = link.url.android;
+    } else {
+      url = link.url.default;
+    }
+
+    trackCustomEvent({
+      action: 'Click',
+      label: url,
+    });
+
+    if (typeof window !== 'undefined') {
+      if (window.fbq != null) { // Don't use ===
+        window.fbq('trackCustom', 'Click Link', { url });
+      }
+    }
+
+    window.open(url, '_blank');
   };
 
   return (
@@ -155,23 +190,23 @@ const IndexPage = () => {
             <Name>Claudius Ibn | Instrategista</Name>
             <Username>@baraodashashtags</Username>
             <LinksList>
-              {links.map((link, index) => (
+              {menuLinks.map((menuLink, index) => (
                 <LinksListItem key={index}>
                   <LinksListButton
                     dangerouslySetInnerHTML={{
-                      __html: link.title
+                      __html: menuLink.title
                     }}
-                    onClick={() => handleLinkClick(link)}
+                    onClick={() => handleLinkClick(menuLink)}
                   >
                   </LinksListButton>
                 </LinksListItem>
               ))}
             </LinksList>
             <SocialNetworksList>
-              {socialNetworks.map(socialNetwork => (
-                <SocialNetworksListItem key={socialNetwork.name} style={{color: '#0E8CFF'}}>
-                  <SocialNetworksListButton onClick={() => handleLinkClick(socialNetwork)}>
-                    {socialNetwork.icon}
+              {socialNetworksLinks.map(socialNetworksLink => (
+                <SocialNetworksListItem key={socialNetworksLink.name} style={{color: '#0E8CFF'}}>
+                  <SocialNetworksListButton onClick={() => handleLinkClick(socialNetworksLink)}>
+                    {socialNetworksLink.icon}
                   </SocialNetworksListButton>
                 </SocialNetworksListItem>
               ))}
