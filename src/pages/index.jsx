@@ -90,7 +90,7 @@ const Name = styled.h1`
 const Username = styled.h2`
   color: #555555;
   font-family: 'Associate Sans Regular';
-  font-size: 15px;
+  font-size: 18px;
   letter-spacing: 0.5px;
   margin: 0;
   margin: 0 0 20px;
