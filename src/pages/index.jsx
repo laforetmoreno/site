@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 import { FaInstagram, FaFacebook, FaTwitter } from 'react-icons/fa';
 
-import ProfilePicture from '../../static/barao-das-hashtags-profile-picture.png';
+import ProfilePicture from '../../static/barao-das-hashtags.png';
 import '../css/typography.css';
 
 const Content = styled.div``;
@@ -144,6 +144,7 @@ const IndexPage = () => {
         </script>
         {/* eslint-disable-next-line react/style-prop-object */}
         <body style="margin: 0; background-image: url('grey-paper-texture.jpg');"></body>
+        <link rel="icon" type="image/png" href="favicon.png" sizes="16x16" />
       </Helmet>
       <Content>
         <Container>
