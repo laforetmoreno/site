@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
 import { isIOS, isAndroid, isMobile } from 'react-device-detect';
@@ -181,11 +181,11 @@ const socialNetworksLinks = [
 ];
 
 const IndexPage = () => {
-  useEffect(() => {
-    setTimeout(() => {
-      console.log(123);
-    }, 5000);
-  }, []);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     console.log(123);
+  //   }, 5000);
+  // }, []);
 
   const handleLinkClick = (link) => {
     let url;
