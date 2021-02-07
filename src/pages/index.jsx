@@ -188,7 +188,7 @@ const IndexPage = () => {
       });
 
       if (window.fbq != null) { // Don't use ===
-        window.fbq('trackCustom', 'Click Link', { url });
+        window.fbq('trackCustom', 'ClickLink', { url });
       }
 
       window.open(url, link.target, 'noopener noreferrer');
