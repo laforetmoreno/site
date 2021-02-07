@@ -152,7 +152,7 @@ const IndexPage = () => {
         <Container>
           <Card>
             <ProfilePictureImage src={ProfilePicture} alt="Claudius Ibn | Instrategista"></ProfilePictureImage>
-            <Name>Claudius Ibn</Name>
+            <Name>Claudius Ibn | Instrategista</Name>
             <Username>@baraodashashtags</Username>
             <LinksList>
               {links.map((link, index) => (
