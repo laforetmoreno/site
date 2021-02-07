@@ -50,7 +50,7 @@ const LinksListButton = styled.button.attrs({
   cursor: pointer;
   font-family: 'Associate Sans Medium', Helvetica, sans-serif;
   letter-spacing: 0.5px;
-  font-size: 17px;
+  font-size: 15px;
   padding: 12px;
   transition: color 0.2s ease;
   transition: background-color 0.2s ease;
@@ -124,7 +124,7 @@ const Card = styled.div`
 
 const menuLinks = [
   {
-    title: 'MENTORIA ENGAJA<span style="display: inline-block; margin-left: 1px; font-size: 24px; line-height: 0; vertical-align: 0px; font-family: \'Associate Sans Regular, Helvetica, sans-serif\';">+</span> INSTAGRAM',
+    title: 'MENTORIA ENGAJA<span style="display: inline-block; margin-left: 1px; font-size: 20px; line-height: 0; vertical-align: 0px; font-family: \'Associate Sans Regular, Helvetica, sans-serif\';">+</span> INSTAGRAM',
     category: 'Menu',
     target: '_blank',
     url: {
