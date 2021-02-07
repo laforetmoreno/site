@@ -105,12 +105,14 @@ const Card = styled.div`
 const menuLinks = [
   {
     title: 'MENTORIA ENGAJA<span style="display: inline-block; margin-left: 1px; font-size: 28px; line-height: 0; vertical-align: -3.5px; font-family: \'Associate Sans Regular\';">+</span> INSTAGRAM',
+    category: 'Menu',
     url: {
       default : 'https://www.hotmart.com/product/mentoria-engaja-mais-no-instagram/T47145001A',
     },
   },
   {
     title: 'LEETAGS (APP DE HASHTAGS)',
+    category: 'Menu',
     url: {
       ios: 'https://itunes.apple.com/app/leetags-relevant-hashtags/id1230168971',
       android: 'https://play.google.com/store/apps/details?id=com.leetags',
@@ -123,6 +125,7 @@ const socialNetworksLinks = [
   {
     icon: <FaInstagram color="#0E8CFF" size={25} />,
     name: 'Instagram',
+    category: 'Social Networks',
     url: {
       default: 'https://www.instagram.com/baraodashashtags/',
     },
@@ -130,6 +133,7 @@ const socialNetworksLinks = [
   {
     icon: <FaFacebook color="#0E8CFF" size={25} />,
     name: 'Facebook',
+    category: 'Social Networks',
     url: {
       default: 'https://www.facebook.com/baraodashashtags',
     },
@@ -144,7 +148,7 @@ const socialNetworksLinks = [
 ];
 
 const IndexPage = () => {
-  const handleLinkClick = (link) => {
+  const handleLinkClick = (link, category) => {
     let url;
 
     if (link.url.ios && isMobileIOS) {
@@ -157,6 +161,7 @@ const IndexPage = () => {
 
     trackCustomEvent({
       action: 'Click',
+      category: link.category,
       label: url,
     });
 
