@@ -104,15 +104,15 @@ const SocialNetworksListButton = styled.button`
 const Name = styled.h1`
   color: #444444;
   font-family: 'Associate Sans Medium', Helvetica, sans-serif;
-  font-size: 20px;
+  font-size: 18px;
   letter-spacing: 0.5px;
-  margin: 20px 0 2.5px;
+  margin: 15px 0 2.5px;
 `;
 
 const Username = styled.h2`
   color: #555555;
   font-family: 'Associate Sans Regular', Helvetica, sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   letter-spacing: 0.5px;
   margin: 0;
   margin: 0 0 20px;
