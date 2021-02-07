@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
-import { isMobileIOS, isMobileAndroid } from 'react-device-detect';
+import { isIOS, isAndroid, isMobile } from 'react-device-detect';
 import { FaInstagram, FaFacebook } from 'react-icons/fa';
 import { trackCustomEvent } from 'gatsby-plugin-google-analytics';
 
@@ -172,9 +172,9 @@ const IndexPage = () => {
   const handleLinkClick = (link) => {
     let url;
 
-    if (link.url.ios && isMobileIOS) {
+    if (link.url.ios && isIOS && isMobile) {
       url = link.url.ios;
-    } else if (link.url.android && isMobileAndroid) {
+    } else if (link.url.android && isAndroid && isMobile) {
       url = link.url.android;
     } else {
       url = link.url.default;
