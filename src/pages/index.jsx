@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
 import { isIOS, isAndroid, isMobile } from 'react-device-detect';
-import { FaInstagram, FaFacebook } from 'react-icons/fa';
+import { FaInstagram, FaFacebook, FaTwitter } from 'react-icons/fa';
 import { trackCustomEvent } from 'gatsby-plugin-google-analytics';
 
 import ProfilePicture from '../../static/barao-das-hashtags.png';
@@ -170,14 +170,14 @@ const socialNetworksLinks = [
       default: 'https://www.facebook.com/baraodashashtags',
     },
   },
-  // {
-  //   icon: <FaTwitter color="#0E8CFF" size={25} />,
-  //   name: 'Twitter',
-  //   target: '_blank',
-  //   url: {
-  //     default: 'https://twitter.com/baraodashashtags',
-  //   },
-  // },
+  {
+    icon: <FaTwitter color="#0E8CFF" size={25} />,
+    name: 'Twitter',
+    target: '_blank',
+    url: {
+      default: 'https://twitter.com/baraodashashtags',
+    },
+  },
 ];
 
 const IndexPage = () => {
