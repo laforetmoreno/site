@@ -258,15 +258,20 @@ const IndexPage = () => {
             content: `summary`,
           },
         ]}
-        link={[{ rel: 'icon', type: 'image/png', href: `favicon.png` }]}
+        link={[
+          { rel: 'icon', type: 'image/png', href: `favicon.png` },
+        ]}
+        script={[
+          {
+            type: 'text/javascript',
+            innerHTML: `(function(l,a,u,n,c,h,e,r){l['HotmartLauncherObject']=c;l[c]=l[c]||function(){
+              (l[c].q=l[c].q||[]).push(arguments)},l[c].l=1*new Date();h=a.createElement(u),
+              e=a.getElementsByTagName(u)[0];h.async=1;h.src=n;e.parentNode.insertBefore(h,e)
+              })(window,document,'script','//launcher.hotmart.com/launcher.js','hot');
+              hot('account','180c77e4-ed85-351c-bcf6-2e1ac9abe717');`
+          }
+        ]}
         >
-        <script id="hotmart_launcher_script">
-          {`(function(l,a,u,n,c,h,e,r){l['HotmartLauncherObject']=c;l[c]=l[c]||function(){
-            (l[c].q=l[c].q||[]).push(arguments)},l[c].l=1*new Date();h=a.createElement(u),
-            e=a.getElementsByTagName(u)[0];h.async=1;h.src=n;e.parentNode.insertBefore(h,e)
-            })(window,document,'script','//launcher.hotmart.com/launcher.js','hot');
-            hot('account','180c77e4-ed85-351c-bcf6-2e1ac9abe717');`}
-        </script>
       </Helmet>
       <Content>
         <Container>
