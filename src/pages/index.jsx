@@ -48,7 +48,7 @@ const LinksListButton = styled.button.attrs({
   box-shadow: 0px 0px 20px -5px rgba(14,140,255,0.65);
   color: #ffffff;
   cursor: pointer;
-  font-family: 'Associate Sans Medium', Helvetica, sans-serif;
+  font-family: 'Associate Sans Medium';
   letter-spacing: 0.5px;
   font-size: 15px;
   padding: 12px;
@@ -103,7 +103,7 @@ const SocialNetworksListButton = styled.button`
 
 const Name = styled.h1`
   color: #444444;
-  font-family: 'Associate Sans Medium', Helvetica, sans-serif;
+  font-family: 'Associate Sans Medium';
   font-size: 18px;
   letter-spacing: 0.5px;
   margin: 15px 0 2.5px;
@@ -111,7 +111,7 @@ const Name = styled.h1`
 
 const Username = styled.h2`
   color: #555555;
-  font-family: 'Associate Sans Regular', Helvetica, sans-serif;
+  font-family: 'Associate Sans Regular';
   font-size: 16px;
   letter-spacing: 0.5px;
   margin: 0;
@@ -124,7 +124,7 @@ const Card = styled.div`
 
 const menuLinks = [
   {
-    title: 'MENTORIA ENGAJA<span style="display: inline-block; margin-left: 1px; font-size: 20px; line-height: 0; vertical-align: -1px; font-family: \'Associate Sans Medium, Helvetica, sans-serif\';">+</span> INSTAGRAM',
+    title: 'MENTORIA ENGAJA<span style="display: inline-block; margin-left: 1px; font-size: 20px; line-height: 0; vertical-align: -1px; font-family: "Associate Sans Medium";">+</span> INSTAGRAM',
     category: 'Menu',
     target: '_blank',
     url: {
