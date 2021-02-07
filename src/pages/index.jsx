@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
-import { HideUntilLoaded } from 'react-animation'
 import { isMobileIOS, isMobileAndroid } from 'react-device-detect';
 import { FaInstagram, FaFacebook } from 'react-icons/fa';
 import { trackCustomEvent } from 'gatsby-plugin-google-analytics';
@@ -181,18 +180,18 @@ const IndexPage = () => {
       url = link.url.default;
     }
 
-    trackCustomEvent({
-      action: 'Click',
-      category: link.category,
-      label: url,
-    });
-
     if (typeof window !== 'undefined') {
+      trackCustomEvent({
+        action: 'Click',
+        category: link.category,
+        label: url,
+      });
+
       if (window.fbq != null) { // Don't use ===
         window.fbq('trackCustom', 'Click Link', { url });
       }
 
-      window.open(url, link.target);
+      window.open(url, link.target, 'noopener noreferrer');
     }
   };
 
@@ -213,9 +212,7 @@ const IndexPage = () => {
       <Content>
         <Container>
           <Card>
-            <HideUntilLoaded animationIn="bounceIn" imageToLoad="../../static/barao-das-hashtags.png">
-              <ProfilePictureImage src={ProfilePicture} alt="Claudius Ibn | Instrategista"></ProfilePictureImage>
-            </HideUntilLoaded>
+            <ProfilePictureImage src={ProfilePicture} alt="Claudius Ibn | Instrategista"></ProfilePictureImage>
             <Name>Claudius Ibn | Instrategista</Name>
             <Username>@baraodashashtags</Username>
             <LinksList>
