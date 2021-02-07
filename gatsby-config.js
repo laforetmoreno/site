@@ -25,6 +25,18 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: 'Claudius Ibn | Instrategista',
+        short_name: 'Claudius Ibn',
+        start_url: '/',
+        background_color: '#0E8CFF',
+        theme_color: '#0E8CFF',
+        display: 'standalone',
+        icon: './static/barao-das-hashtags-large.png', // This path is relative to the root of the site.
+      },
+    },
+    {
       resolve: `gatsby-plugin-facebook-pixel`,
       options: {
         pixelId: `399549068038246`,

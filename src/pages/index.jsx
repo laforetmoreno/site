@@ -197,8 +197,69 @@ const IndexPage = () => {
 
   return (
     <main>
-      <Helmet>
-        <title>Claudius Ibn | Instrategista</title>
+      <Helmet
+        htmlAttributes={{ lang: 'pt' }}
+        title="Claudius Ibn | Instrategista"
+        meta={[
+          {
+            property: `title`,
+            content: `Claudius Ibn | Instrategista`,
+          },
+          {
+            name: `description`,
+            content: `Dicas para Instagram.`,
+          },
+          {
+            property: `og:url`,
+            content: `https://baraodashashtags.com`,
+          },
+          {
+            property: `og:title`,
+            content: `Claudius Ibn | Instrategista`,
+          },
+          {
+            property: `og:description`,
+            content: `Dicas para Instagram.`,
+          },
+          {
+            property: `og:image`,
+            content: `https://baraodashashtags.com/barao-das-hashtags-large.png`,
+          },
+          {
+            property: `og:image:width`,
+            content: `600`,
+          },
+          {
+            property: `og:image:height`,
+            content: `600`,
+          },
+          {
+            property: `og:image:alt`,
+            content: `Claudius Ibn | Instrategista`,
+          },
+          {
+            name: `twitter:title`,
+            content: `Claudius Ibn | Instrategista`,
+          },
+          {
+            name: `twitter:description`,
+            content: `Dicas para Instagram.`,
+          },
+          {
+            property: `twitter:image`,
+            content: `https://baraodashashtags.com/barao-das-hashtags-large.png`,
+          },
+          {
+            property: `twitter:image:alt`,
+            content: `Claudius Ibn | Instrategista`,
+          },
+          {
+            name: `twitter:card`,
+            content: `summary`,
+          },
+        ]}
+        link={[{ rel: 'icon', type: 'image/png', href: `favicon.png` }]}
+        >
         <script id="hotmart_launcher_script">
           {`(function(l,a,u,n,c,h,e,r){l['HotmartLauncherObject']=c;l[c]=l[c]||function(){
             (l[c].q=l[c].q||[]).push(arguments)},l[c].l=1*new Date();h=a.createElement(u),
@@ -206,8 +267,6 @@ const IndexPage = () => {
             })(window,document,'script','//launcher.hotmart.com/launcher.js','hot');
             hot('account','180c77e4-ed85-351c-bcf6-2e1ac9abe717');`}
         </script>
-        {/* eslint-disable-next-line react/style-prop-object */}
-        <link rel="icon" type="image/png" href="favicon.png" sizes="16x16" />
       </Helmet>
       <Content>
         <Container>
