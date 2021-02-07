@@ -3,7 +3,7 @@ module.exports = {
     title: 'Claudius Ibn | Instrategista',
     description: 'Dicas para Instagram.',
     siteUrl: 'https://baraodashashtags.com',
-    image: '/barao-das-hashtags.png',
+    image: '/barao-das-hashtags-large.png',
     twitterUsername: '@baraodashashtags',
   },
   plugins: [
