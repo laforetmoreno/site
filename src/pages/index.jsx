@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
 import { isIOS, isAndroid, isMobile } from 'react-device-detect';
-import { FaInstagram, FaFacebook, FaTwitter } from 'react-icons/fa';
+import { FaInstagram, FaFacebook, FaWhatsapp } from 'react-icons/fa';
 import { trackCustomEvent } from 'gatsby-plugin-google-analytics';
 
 import ProfilePicture from '../../static/barao-das-hashtags.png';
@@ -171,11 +171,11 @@ const socialNetworksLinks = [
     },
   },
   {
-    icon: <FaTwitter color="#0E8CFF" size={25} />,
-    name: 'Twitter',
+    icon: <FaWhatsapp color="#0E8CFF" size={25} />,
+    name: 'WhatsApp',
     target: '_blank',
     url: {
-      default: 'https://twitter.com/BaraoHashtags',
+      default: 'https://api.whatsapp.com/send?phone=5521998584535&text=Oi!',
     },
   },
 ];
