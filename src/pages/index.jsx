@@ -52,7 +52,7 @@ const LinksListButton = styled.button.attrs({
 
 const ProfilePictureImage = styled.img`
   border-radius: 50%;
-  box-shadow: 0px 0px 75px -10px rgba(14,140,255,0.65);
+  box-shadow: 0px 0px 75px -10px rgba(14,140,255,0.5);
   width: 150px;
   height: 150px;
   margin-top: 15px;
