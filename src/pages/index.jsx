@@ -124,7 +124,7 @@ const Card = styled.div`
 
 const menuLinks = [
   {
-    title: 'MENTORIA ENGAJA<span style="display: inline-block; margin-left: 1px; font-size: 20px; line-height: 0; vertical-align: -1px; font-family: "Associate Sans Medium";">+</span> INSTAGRAM',
+    title: 'MENTORIA ENGAJA<span style="display: inline-block; margin-left: 1px; font-size: 20px; line-height: 0; vertical-align: -1px; font-family: \'Associate Sans Medium\'";">+</span> INSTAGRAM',
     category: 'Menu',
     target: '_blank',
     url: {
