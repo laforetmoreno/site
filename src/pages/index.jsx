@@ -128,7 +128,7 @@ const menuLinks = [
     category: 'Menu',
     target: '_blank',
     url: {
-      default : 'https://www.hotmart.com/product/mentoria-engaja-mais-no-instagram/T47145001A',
+      default : 'https://www.hotmart.com/product/mentoria-engaja-mais-instagram/S47407033D',
     },
   },
   {
