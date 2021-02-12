@@ -50,7 +50,7 @@ const LinksListButton = styled.button.attrs({
   cursor: pointer;
   font-family: 'Associate Sans Medium';
   letter-spacing: 0.5px;
-  font-size: 15px;
+  font-size: 14px;
   padding: 12px;
   transition: color 0.2s ease;
   transition: background-color 0.2s ease;
@@ -123,16 +123,16 @@ const Card = styled.div`
 `;
 
 const menuLinks = [
+  // {
+  //   title: 'MENTORIA ENGAJA<span style="display: inline-block; margin-left: 1px; font-size: 28px; line-height: 0; vertical-align: -4px; font-family: \'Associate Sans Regular\'";">+</span> INSTAGRAM',
+  //   category: 'Menu',
+  //   target: '_blank',
+  //   url: {
+  //     default : 'https://www.hotmart.com/product/mentoria-engaja-mais-instagram/S47407033D',
+  //   },
+  // },
   {
-    title: 'MENTORIA ENGAJA<span style="display: inline-block; margin-left: 1px; font-size: 28px; line-height: 0; vertical-align: -4px; font-family: \'Associate Sans Regular\'";">+</span> INSTAGRAM',
-    category: 'Menu',
-    target: '_blank',
-    url: {
-      default : 'https://www.hotmart.com/product/mentoria-engaja-mais-instagram/S47407033D',
-    },
-  },
-  {
-    title: 'ENTRAR NO GRUPO DO TELEGRAM',
+    title: 'ENTRAR NO MEU GRUPO DO TELEGRAM',
     category: 'Menu',
     target: '_blank',
     url: {
@@ -140,7 +140,7 @@ const menuLinks = [
     },
   },
   {
-    title: 'LEETAGS - APP DE HASHTAGS',
+    title: 'LEETAGS - MEU APP DE HASHTAGS',
     category: 'Menu',
     target: '_blank',
     url: {
