@@ -1,4 +1,10 @@
 [[redirects]]
+  from = "/canvaprofissional"
+  to = "https://go.hotmart.com/H48919535N"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "https://baraodashashtags.com.br"
   to = "https://baraodashashtags.com"
   status = 301
