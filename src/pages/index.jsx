@@ -21,7 +21,7 @@ const Container = styled.div`
   min-height: 449px;
   justify-content: center;
   width: 100vw;
-  min-width: 311px;
+  min-width: 330px;
 `;
 
 const LinksList = styled.ul`
@@ -32,7 +32,7 @@ const LinksList = styled.ul`
 
 const LinksListItem = styled.li`
   margin-top: 10px;
-  width: 310px;
+  width: 330px;
 
   &:first-child {
     margin-top: 0;
