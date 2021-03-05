@@ -122,17 +122,20 @@ const Card = styled.div`
   text-align: center;
 `;
 
+// Alex Vargas: Método Vargas
+// https://app-vlc.hotmart.com/accounts/view/c3cb0df0-097e-11e4-be45-22000b409f8a
+
 const menuLinks = [
-  // {
-  //   title: 'MENTORIA ENGAJA<span style="display: inline-block; margin-left: 1px; font-size: 28px; line-height: 0; vertical-align: -4px; font-family: \'Associate Sans Regular\'";">+</span> INSTAGRAM',
-  //   category: 'Menu',
-  //   target: '_blank',
-  //   url: {
-  //     default : 'https://www.hotmart.com/product/mentoria-engaja-mais-instagram/S47407033D',
-  //   },
-  // },
   {
-    title: 'ENTRAR NO MEU GRUPO DO TELEGRAM',
+    title: 'DESIGN CANVAS - BÁSICO AO AVANÇADO',
+    category: 'Menu',
+    target: '_blank',
+    url: {
+      default: 'https://go.hotmart.com/H48919535N',
+    },
+  },
+  {
+    title: 'ENTRAR NO GRUPO DO TELEGRAM',
     category: 'Menu',
     target: '_blank',
     url: {
@@ -140,7 +143,7 @@ const menuLinks = [
     },
   },
   {
-    title: 'LEETAGS - MEU APP DE HASHTAGS',
+    title: 'LEETAGS - APP DE HASHTAGS',
     category: 'Menu',
     target: '_blank',
     url: {
