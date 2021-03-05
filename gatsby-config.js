@@ -23,17 +23,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: "Moreno Andrade | Software Engineer",
-        short_name: "Moreno Andrade",
-        start_url: '/',
-        background_color: '#0E8CFF',
-        theme_color: '#0E8CFF',
-        display: 'standalone',
-      },
-    },
-    {
       resolve: `gatsby-plugin-facebook-pixel`,
       options: {
         pixelId: ``,
