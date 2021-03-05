@@ -127,7 +127,7 @@ const Card = styled.div`
 
 const menuLinks = [
   {
-    title: 'DESIGN CANVAS - BÁSICO AO AVANÇADO',
+    title: 'CURSO CANVA - DO BÁSICO AO AVANÇADO',
     category: 'Menu',
     target: '_blank',
     url: {
