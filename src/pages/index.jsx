@@ -6,7 +6,7 @@ import { FaInstagram, FaFacebook, FaWhatsapp } from 'react-icons/fa';
 import { trackCustomEvent } from 'gatsby-plugin-google-analytics';
 import { Shake } from 'reshake';
 
-import ProfilePicture from '../../static/barao-das-hashtags.png';
+import ProfilePicture from '../../static/moreno.jpg';
 import '../css/global.css';
 import '../css/typography.css';
 
@@ -123,37 +123,23 @@ const Card = styled.div`
   text-align: center;
 `;
 
-// Alex Vargas: Método Vargas
-// https://app-vlc.hotmart.com/accounts/view/c3cb0df0-097e-11e4-be45-22000b409f8a
-
 const menuLinks = [
   {
-    title: 'CURSO CANVA - DO BÁSICO AO AVANÇADO',
-    category: 'Menu',
-    target: '_blank',
-    highlight: true,
-    url: {
-      default: 'https://go.hotmart.com/H48919535N',
-    },
-  },
-  {
-    title: 'ENTRAR NO GRUPO DO TELEGRAM',
+    title: 'Github',
     category: 'Menu',
     target: '_blank',
     highlight: false,
     url: {
-      default: 'https://t.me/joinchat/Hx2oHJd_Q_4_ncjP',
+      default: 'https://github.com/laforetmoreno',
     },
   },
   {
-    title: 'LEETAGS - APP DE HASHTAGS',
+    title: 'Linkedin',
     category: 'Menu',
     target: '_blank',
     highlight: false,
     url: {
-      ios: 'https://itunes.apple.com/app/leetags-relevant-hashtags/id1230168971',
-      android: 'https://play.google.com/store/apps/details?id=com.leetags',
-      default: 'https://www.leetags.com',
+      default: 'https://www.linkedin.com/in/moreno-andrade/',
     },
   },
 ];
@@ -165,7 +151,7 @@ const socialNetworksLinks = [
     category: 'Social Networks',
     target: '_blank',
     url: {
-      default: 'https://www.instagram.com/baraodashashtags/',
+      default: 'https://www.instagram.com/laforetmoreno/',
     },
   },
   {
@@ -174,7 +160,7 @@ const socialNetworksLinks = [
     category: 'Social Networks',
     target: '_blank',
     url: {
-      default: 'https://www.facebook.com/baraodashashtags',
+      default: 'https://www.facebook.com/laforetmoreno/',
     },
   },
   {
@@ -182,7 +168,7 @@ const socialNetworksLinks = [
     name: 'WhatsApp',
     target: '_blank',
     url: {
-      default: 'https://api.whatsapp.com/send?phone=5521998584535&text=Oi!',
+      default: 'https://api.whatsapp.com/send?phone=5521994156023&text=Oi!',
     },
   },
 ];
@@ -233,31 +219,27 @@ const IndexPage = () => {
     <main>
       <Helmet
         htmlAttributes={{ lang: 'pt' }}
-        title="Claudius Ibn | Leetags"
+        title="Moreno Andrade | Software Engineer"
         meta={[
           {
             property: `title`,
-            content: `Claudius Ibn | Leetags`,
+            content: "Moreno Andrade | Software Engineer",
           },
           {
             name: `description`,
-            content: `Dicas para Instagram.`,
+            content: "Moreno Andrade | Software Engineer",
           },
           {
             property: `og:url`,
-            content: `https://baraodashashtags.com`,
+            content: `https://morenolaforet.dev/`,
           },
           {
             property: `og:title`,
-            content: `Claudius Ibn | Leetags`,
+            content: "Moreno Andrade | Software Engineer",
           },
           {
             property: `og:description`,
-            content: `Dicas para Instagram.`,
-          },
-          {
-            property: `og:image`,
-            content: `https://baraodashashtags.com/barao-das-hashtags-large.png`,
+            content: "Moreno Andrade | Software Engineer",
           },
           {
             property: `og:image:width`,
@@ -267,52 +249,20 @@ const IndexPage = () => {
             property: `og:image:height`,
             content: `600`,
           },
-          {
-            property: `og:image:alt`,
-            content: `Claudius Ibn | Leetags`,
-          },
-          {
-            name: `twitter:title`,
-            content: `Claudius Ibn | Leetags`,
-          },
-          {
-            name: `twitter:description`,
-            content: `Dicas para Instagram.`,
-          },
-          {
-            property: `twitter:image`,
-            content: `https://baraodashashtags.com/barao-das-hashtags-large.png`,
-          },
-          {
-            property: `twitter:image:alt`,
-            content: `Claudius Ibn | Leetags`,
-          },
-          {
-            name: `twitter:card`,
-            content: `summary`,
-          },
         ]}
         link={[
           { rel: 'icon', type: 'image/png', href: `favicon.png` },
         ]}
         script={[
-          {
-            type: 'text/javascript',
-            innerHTML: `(function(l,a,u,n,c,h,e,r){l['HotmartLauncherObject']=c;l[c]=l[c]||function(){
-              (l[c].q=l[c].q||[]).push(arguments)},l[c].l=1*new Date();h=a.createElement(u),
-              e=a.getElementsByTagName(u)[0];h.async=1;h.src=n;e.parentNode.insertBefore(h,e)
-              })(window,document,'script','//launcher.hotmart.com/launcher.js','hot');
-              hot('account','180c77e4-ed85-351c-bcf6-2e1ac9abe717');`
-          }
         ]}
         >
       </Helmet>
       <Content>
         <Container>
           <Card>
-            <ProfilePictureImage src={ProfilePicture} alt="Claudius Ibn | Leetags"></ProfilePictureImage>
-            <Name>Claudius Ibn | Leetags</Name>
-            <Username>@baraodashashtags</Username>
+            <ProfilePictureImage src={ProfilePicture} alt="Moreno Andrade | Software Engineer"></ProfilePictureImage>
+            <Name>Moreno Andrade</Name>
+            <Username>@laforetmoreno</Username>
             <LinksList>
               {menuLinks.map((menuLink, index) => (
                 <LinksListItem key={index}>

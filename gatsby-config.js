@@ -1,10 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: 'Claudius Ibn | Leetags',
-    description: 'Dicas para Instagram.',
-    siteUrl: 'https://baraodashashtags.com',
-    image: '/barao-das-hashtags-large.png',
-    twitterUsername: '@baraodashashtags',
+    title: "Moreno Andrade | Software Engineer",
+    description: "Moreno Andrade | Software Engineer",
+    siteUrl: 'https://morenolaforet.dev',
   },
   plugins: [
     `gatsby-plugin-styled-components`,
@@ -27,25 +25,24 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'Claudius Ibn | Leetags',
-        short_name: 'Claudius Ibn',
+        name: "Moreno Andrade | Software Engineer",
+        short_name: "Moreno Andrade",
         start_url: '/',
         background_color: '#0E8CFF',
         theme_color: '#0E8CFF',
         display: 'standalone',
-        icon: './static/barao-das-hashtags-large.png', // This path is relative to the root of the site.
       },
     },
     {
       resolve: `gatsby-plugin-facebook-pixel`,
       options: {
-        pixelId: `399549068038246`,
+        pixelId: ``,
       },
     },
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: `UA-185650998-1`,
+        trackingId: `UA-136143558-1`,
       },
     },
   ],
