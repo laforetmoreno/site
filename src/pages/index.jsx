@@ -43,10 +43,10 @@ const LinksListItem = styled.li`
 const LinksListButton = styled.button.attrs({
   type: 'button',
 })`
-  background-color: #0E8CFF;
-  border: 3px solid #0E8CFF;
+  background-color: ${props => (props.highlight ? '#000000' : '#0E8CFF')};
+  border: 3px solid ${props => (props.highlight ? '#000000' : '#0E8CFF')};
   border-radius: 5px;
-  box-shadow: 0px 0px 20px -5px rgba(14,140,255,0.65);
+  box-shadow: 0px 0px 20px -5px ${props => (props.highlight ? 'rgba(0, 0, 0, 0.65)' : 'rgba(14, 140, 255, 0.65)')};
   color: #ffffff;
   cursor: pointer;
   font-family: 'Associate Sans Medium';
@@ -59,7 +59,7 @@ const LinksListButton = styled.button.attrs({
 
   &:hover, &:active {
     background-color: transparent;
-    color: #0E8CFF;
+    color: ${props => (props.highlight ? '#000000' : '#0E8CFF')};
   }
 
   &:focus {
@@ -69,7 +69,7 @@ const LinksListButton = styled.button.attrs({
 
 const ProfilePictureImage = styled.img`
   border-radius: 50%;
-  box-shadow: 0px 0px 75px -10px rgba(14,140,255,0.5);
+  box-shadow: 0px 0px 75px -10px rgba(14,140,255,0.8);
   width: 150px;
   height: 150px;
   margin-top: 15px;
@@ -103,7 +103,7 @@ const SocialNetworksListButton = styled.button`
 `;
 
 const Name = styled.h1`
-  color: #444444;
+  color: #222222;
   font-family: 'Associate Sans Medium';
   font-size: 18px;
   letter-spacing: 0.5px;
@@ -221,7 +221,7 @@ const IndexPage = () => {
   };
 
   const renderLinksListButton = (menuLink) =>
-    <LinksListButton
+    <LinksListButton highlight={menuLink.highlight}
       dangerouslySetInnerHTML={{
         __html: menuLink.title
       }}
