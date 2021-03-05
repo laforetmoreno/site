@@ -33,6 +33,7 @@
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
     "react-icons": "^4.1.0",
+    "reshake": "^1.2.2",
     "styled-components": "^5.2.1"
   }
 }

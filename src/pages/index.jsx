@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet';
 import { isIOS, isAndroid, isMobile } from 'react-device-detect';
 import { FaInstagram, FaFacebook, FaWhatsapp } from 'react-icons/fa';
 import { trackCustomEvent } from 'gatsby-plugin-google-analytics';
+import { Shake } from 'reshake';
 
 import ProfilePicture from '../../static/barao-das-hashtags.png';
 import '../css/global.css';
@@ -130,6 +131,7 @@ const menuLinks = [
     title: 'CURSO CANVA - DO BÁSICO AO AVANÇADO',
     category: 'Menu',
     target: '_blank',
+    highlight: true,
     url: {
       default: 'https://go.hotmart.com/H48919535N',
     },
@@ -138,6 +140,7 @@ const menuLinks = [
     title: 'ENTRAR NO GRUPO DO TELEGRAM',
     category: 'Menu',
     target: '_blank',
+    highlight: false,
     url: {
       default: 'https://t.me/joinchat/Hx2oHJd_Q_4_ncjP',
     },
@@ -146,6 +149,7 @@ const menuLinks = [
     title: 'LEETAGS - APP DE HASHTAGS',
     category: 'Menu',
     target: '_blank',
+    highlight: false,
     url: {
       ios: 'https://itunes.apple.com/app/leetags-relevant-hashtags/id1230168971',
       android: 'https://play.google.com/store/apps/details?id=com.leetags',
@@ -215,6 +219,15 @@ const IndexPage = () => {
       window.open(url, link.target, 'noopener noreferrer');
     }
   };
+
+  const renderLinksListButton = (menuLink) =>
+    <LinksListButton
+      dangerouslySetInnerHTML={{
+        __html: menuLink.title
+      }}
+      onClick={() => handleLinkClick(menuLink)}
+    >
+    </LinksListButton>;
 
   return (
     <main>
@@ -303,13 +316,19 @@ const IndexPage = () => {
             <LinksList>
               {menuLinks.map((menuLink, index) => (
                 <LinksListItem key={index}>
-                  <LinksListButton
-                    dangerouslySetInnerHTML={{
-                      __html: menuLink.title
-                    }}
-                    onClick={() => handleLinkClick(menuLink)}
+                  {menuLink.highlight ? <Shake
+                    h={3}
+                    v={3}
+                    r={3}
+                    dur={300}
+                    int={25}
+                    max={100}
+                    fixed={true}
+                    fixedStop={true}
+                    freez={true}
                   >
-                  </LinksListButton>
+                    {renderLinksListButton(menuLink)}
+                  </Shake> : renderLinksListButton(menuLink)}
                 </LinksListItem>
               ))}
             </LinksList>
