@@ -130,7 +130,7 @@ const menuLinks = [
     target: '_blank',
     highlight: false,
     url: {
-      default: 'https://github.com/laforetmoreno',
+      default: 'https://cutt.ly/qzr3avm',
     },
   },
   {
@@ -139,7 +139,7 @@ const menuLinks = [
     target: '_blank',
     highlight: false,
     url: {
-      default: 'https://www.linkedin.com/in/moreno-andrade/',
+      default: 'https://cutt.ly/1zr3hAb',
     },
   },
 ];
@@ -151,7 +151,7 @@ const socialNetworksLinks = [
     category: 'Social Networks',
     target: '_blank',
     url: {
-      default: 'https://www.instagram.com/laforetmoreno/',
+      default: 'https://cutt.ly/tzr3xCC',
     },
   },
   {
