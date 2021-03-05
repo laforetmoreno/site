@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'Claudius Ibn | Instrategista',
+    title: 'Claudius Ibn | Leetags',
     description: 'Dicas para Instagram.',
     siteUrl: 'https://baraodashashtags.com',
     image: '/barao-das-hashtags-large.png',
@@ -27,7 +27,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'Claudius Ibn | Instrategista',
+        name: 'Claudius Ibn | Leetags',
         short_name: 'Claudius Ibn',
         start_url: '/',
         background_color: '#0E8CFF',

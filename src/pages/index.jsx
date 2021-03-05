@@ -220,11 +220,11 @@ const IndexPage = () => {
     <main>
       <Helmet
         htmlAttributes={{ lang: 'pt' }}
-        title="Claudius Ibn | Instrategista"
+        title="Claudius Ibn | Leetags"
         meta={[
           {
             property: `title`,
-            content: `Claudius Ibn | Instrategista`,
+            content: `Claudius Ibn | Leetags`,
           },
           {
             name: `description`,
@@ -236,7 +236,7 @@ const IndexPage = () => {
           },
           {
             property: `og:title`,
-            content: `Claudius Ibn | Instrategista`,
+            content: `Claudius Ibn | Leetags`,
           },
           {
             property: `og:description`,
@@ -256,11 +256,11 @@ const IndexPage = () => {
           },
           {
             property: `og:image:alt`,
-            content: `Claudius Ibn | Instrategista`,
+            content: `Claudius Ibn | Leetags`,
           },
           {
             name: `twitter:title`,
-            content: `Claudius Ibn | Instrategista`,
+            content: `Claudius Ibn | Leetags`,
           },
           {
             name: `twitter:description`,
@@ -272,7 +272,7 @@ const IndexPage = () => {
           },
           {
             property: `twitter:image:alt`,
-            content: `Claudius Ibn | Instrategista`,
+            content: `Claudius Ibn | Leetags`,
           },
           {
             name: `twitter:card`,
@@ -297,8 +297,8 @@ const IndexPage = () => {
       <Content>
         <Container>
           <Card>
-            <ProfilePictureImage src={ProfilePicture} alt="Claudius Ibn | Instrategista"></ProfilePictureImage>
-            <Name>Claudius Ibn <span role="img" aria-label="Peão de xadrez">♟️</span> Instrategista</Name>
+            <ProfilePictureImage src={ProfilePicture} alt="Claudius Ibn | Leetags"></ProfilePictureImage>
+            <Name>Claudius Ibn | Leetags</Name>
             <Username>@baraodashashtags</Username>
             <LinksList>
               {menuLinks.map((menuLink, index) => (
